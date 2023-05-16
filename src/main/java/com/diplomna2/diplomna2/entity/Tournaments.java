@@ -12,6 +12,10 @@ public class Tournaments {
     @GeneratedValue
     private Long id;
 
+    private String name;
+
+    private int numOfParticipants;
+
     @ManyToMany
     @JoinTable(name = "tournament_team",
             joinColumns = @JoinColumn(name = "tournament_id"),

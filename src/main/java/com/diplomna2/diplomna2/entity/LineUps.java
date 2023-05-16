@@ -12,6 +12,10 @@ public class LineUps {
     @GeneratedValue
     private Long id;
 
+    private String name;
+
+    private int formation;
+
     @ManyToMany(mappedBy = "team")
     private List<Players> players;
 

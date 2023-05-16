@@ -12,6 +12,8 @@ public class Teams {
     @GeneratedValue
     private Long id;
 
+    private String name;
+
     @OneToMany(mappedBy = "team")
     private List<LineUps> lineUps;
 

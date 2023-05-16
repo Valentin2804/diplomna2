@@ -12,6 +12,8 @@ public class Players {
     @GeneratedValue
     private Long id;
 
+    private String name;
+
     @ManyToMany
     @JoinTable(
             name = "lineup_players",
@@ -22,4 +24,16 @@ public class Players {
 
     @ManyToOne
     private Teams team;
+
+    @ManyToMany(mappedBy = "homeGoalScorers")
+    private List<Matches> homeGoalMatches;
+
+    @ManyToMany(mappedBy = "awayGoalScorers")
+    private List<Matches> awayGoalMatches;
+
+    @ManyToMany(mappedBy = "homeGoalAssistants")
+    private List<Matches> homeGoalAssistants;
+
+    @ManyToMany(mappedBy = "awayGoalAssistants")
+    private List<Matches> awayGoalAssistants;
 }
