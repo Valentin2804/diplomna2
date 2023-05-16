@@ -19,4 +19,7 @@ public class Players {
             inverseJoinColumns = @JoinColumn(name = "lineup_id")
     )
     private List<LineUps> lineUps;
+
+    @ManyToOne
+    private Teams team;
 }

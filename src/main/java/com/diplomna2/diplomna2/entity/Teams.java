@@ -1,9 +1,6 @@
 package com.diplomna2.diplomna2.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -15,6 +12,21 @@ public class Teams {
     @GeneratedValue
     private Long id;
 
-    @OneToMany (mappedBy = "teams")
+    @OneToMany(mappedBy = "team")
     private List<LineUps> lineUps;
+
+    @OneToMany(mappedBy = "team")
+    private List<Players> players;
+
+    @OneToOne
+    private Managers manager;
+
+    @ManyToMany(mappedBy = "participants")
+    private List<Tournaments> competitions;
+
+    @OneToMany(mappedBy = "matches")
+    private List<Matches> homeMatches;
+
+    @OneToMany(mappedBy = "matches")
+    private List<Matches> awayMatches;
 }

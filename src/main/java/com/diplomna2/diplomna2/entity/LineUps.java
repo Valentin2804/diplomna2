@@ -12,9 +12,15 @@ public class LineUps {
     @GeneratedValue
     private Long id;
 
-    @ManyToMany(mappedBy = "lineUps")
+    @ManyToMany(mappedBy = "team")
     private List<Players> players;
 
     @ManyToOne
     private Teams team;
+
+    @OneToMany (mappedBy = "match")
+    private List<Matches> homeLineUps;
+
+    @OneToMany (mappedBy = "match")
+    private List<Matches> awayLineUps;
 }
