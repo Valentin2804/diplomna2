@@ -26,14 +26,14 @@ public class Players {
     private Teams team;
 
     @ManyToMany(mappedBy = "homeGoalScorers")
-    private List<Matches> homeGoalMatches;
+    private List<Matches> homeMatchGoals;
 
     @ManyToMany(mappedBy = "awayGoalScorers")
-    private List<Matches> awayGoalMatches;
+    private List<Matches> awayMatchGoals;
 
     @ManyToMany(mappedBy = "homeGoalAssistants")
-    private List<Matches> homeGoalAssistants;
+    private List<Matches> homeMatchAssists;
 
     @ManyToMany(mappedBy = "awayGoalAssistants")
-    private List<Matches> awayGoalAssistants;
+    private List<Matches> awayMatchAssists;
 }
