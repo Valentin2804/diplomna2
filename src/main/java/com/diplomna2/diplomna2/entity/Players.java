@@ -14,6 +14,12 @@ public class Players {
 
     private String name;
 
+    private int apps;
+
+    private int cls;
+
+    private String position;
+
     @ManyToMany
     @JoinTable(
             name = "lineup_players",
