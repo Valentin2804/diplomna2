@@ -26,9 +26,9 @@ public class Teams {
     @ManyToMany(mappedBy = "participants")
     private List<Tournaments> competitions;
 
-    @OneToMany(mappedBy = "matches")
+    @OneToMany(mappedBy = "homeTeam")
     private List<Matches> homeMatches;
 
-    @OneToMany(mappedBy = "matches")
+    @OneToMany(mappedBy = "awayTeam")
     private List<Matches> awayMatches;
 }

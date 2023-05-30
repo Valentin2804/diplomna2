@@ -16,15 +16,15 @@ public class LineUps {
 
     private int formation;
 
-    @ManyToMany(mappedBy = "team")
+    @ManyToMany(mappedBy = "lineUps")
     private List<Players> players;
 
     @ManyToOne
     private Teams team;
 
-    @OneToMany (mappedBy = "match")
+    @OneToMany (mappedBy = "homeLineUp")
     private List<Matches> homeLineUps;
 
-    @OneToMany (mappedBy = "match")
+    @OneToMany (mappedBy = "awayLineUp")
     private List<Matches> awayLineUps;
 }

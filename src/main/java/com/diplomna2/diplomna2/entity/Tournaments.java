@@ -22,6 +22,6 @@ public class Tournaments {
             inverseJoinColumns = @JoinColumn(name = "team_id"))
     private List<Teams> participants;
 
-    @OneToMany (mappedBy = "match")
+    @OneToMany (mappedBy = "tournament")
     private List<Matches> matches;
 }
