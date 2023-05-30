@@ -1,6 +1,5 @@
-package com.diplomna2.diplomna2.resources;
+package com.diplomna2.diplomna2.controller.resources;
 
-import com.diplomna2.diplomna2.entity.*;
 import lombok.Data;
 
 import java.util.List;

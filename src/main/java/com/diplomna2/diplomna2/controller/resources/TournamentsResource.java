@@ -1,7 +1,7 @@
-package com.diplomna2.diplomna2.resources;
+package com.diplomna2.diplomna2.controller.resources;
 
-import com.diplomna2.diplomna2.entity.Matches;
-import com.diplomna2.diplomna2.entity.Teams;
+import com.diplomna2.diplomna2.controller.resources.MatchesResource;
+import com.diplomna2.diplomna2.controller.resources.TeamsResource;
 import lombok.Data;
 
 import java.util.List;

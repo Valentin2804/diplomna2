@@ -1,9 +1,5 @@
-package com.diplomna2.diplomna2.resources;
+package com.diplomna2.diplomna2.controller.resources;
 
-import com.diplomna2.diplomna2.entity.LineUps;
-import com.diplomna2.diplomna2.entity.Players;
-import com.diplomna2.diplomna2.entity.Teams;
-import com.diplomna2.diplomna2.entity.Tournaments;
 import lombok.Data;
 
 import java.util.List;
