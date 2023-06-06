@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(uses = {TeamMapper.class, MatchMapper.class})
 public interface TournamentMapper {
 
@@ -14,4 +16,6 @@ public interface TournamentMapper {
     Tournaments fromTournamentsResource(TournamentsResource tournamentResource);
 
     TournamentsResource toTournamentsResource(Tournaments tournament);
+
+    List<TournamentsResource> toTournamentsResources(List<Tournaments> tournaments);
 }
