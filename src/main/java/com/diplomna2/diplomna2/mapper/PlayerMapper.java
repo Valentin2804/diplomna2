@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(uses = {LineUpMapper.class, MatchMapper.class})
 public interface PlayerMapper {
 
@@ -17,4 +19,6 @@ public interface PlayerMapper {
 
     @Mapping(target = "team", source = "player.team.name")
     PlayersResource toPlayerResource(Players player);
+
+    List<PlayersResource> toPlayerResources(List<Players> players);
 }

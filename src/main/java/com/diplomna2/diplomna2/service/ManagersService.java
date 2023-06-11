@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ManagersService {
 
-    List<Managers> findAll();
+    List<ManagersResource> findAll();
 
     ManagersResource getById(long managerId);
 
