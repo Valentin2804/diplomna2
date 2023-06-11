@@ -7,10 +7,11 @@ import com.diplomna2.diplomna2.service.ManagersService;
 import com.diplomna2.diplomna2.service.TeamsService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.Manager;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static com.diplomna2.diplomna2.mapper.ManagerMapper.MANAGER_MAPPER;
 
@@ -51,6 +52,11 @@ public class ManagersImpl implements ManagersService {
                 });
 
         return MANAGER_MAPPER.toManagerResource(managersRepository.save(toUpdate));
+    }
+
+    @Override
+    public Optional<Managers> getManagerByNameAndBirthday(String name, LocalDate birthday) {
+        return managersRepository.getManagersByBirthDayAndName();
     }
 
     @Override

@@ -3,7 +3,10 @@ package com.diplomna2.diplomna2.service.impl;
 import com.diplomna2.diplomna2.controller.resources.TeamsResource;
 import com.diplomna2.diplomna2.entity.Teams;
 import com.diplomna2.diplomna2.repository.TeamsRepository;
+import com.diplomna2.diplomna2.service.ManagersService;
+import com.diplomna2.diplomna2.service.PlayersService;
 import com.diplomna2.diplomna2.service.TeamsService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,9 @@ public class TeamsServiceImpl implements TeamsService {
 
     private final TeamsRepository teamsRepository;
 
+    private final ManagersService managersService;
+    private final PlayersService playersService;
+
     @Override
     public List<TeamsResource> findAll() {
         return TEAM_MAPPER.toTeamsResources(teamsRepository.findAll());
@@ -30,7 +36,19 @@ public class TeamsServiceImpl implements TeamsService {
 
     @Override
     public TeamsResource save(TeamsResource team) {
-        return null;
+
+        Teams team1 = TEAM_MAPPER.fromTeamsResource(team);
+
+        managersService.getManagerByNameAndBirthday(team1.getManager().getName(), team1.getManager().getBirthDay())
+                .ifPresentOrElse(team1::setManager,
+                        () -> {
+                    throw new EntityNotFoundException("Manager with name " + team1.getManager().getName() +
+                            " and birthday " + team1.getManager().getBirthDay() + " not found");
+                        });
+
+        playersService
+
+        return TEAM_MAPPER.toTeamsResource(teamsRepository.save(team1));
     }
 
     @Override
