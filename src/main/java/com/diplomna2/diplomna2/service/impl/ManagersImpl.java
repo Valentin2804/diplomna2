@@ -56,7 +56,7 @@ public class ManagersImpl implements ManagersService {
 
     @Override
     public Optional<Managers> getManagerByNameAndBirthday(String name, LocalDate birthday) {
-        return managersRepository.getManagersByBirthDayAndName();
+        return managersRepository.getManagersByBirthDayAndName(name, birthday);
     }
 
     @Override

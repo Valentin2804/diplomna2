@@ -31,4 +31,9 @@ public class Teams {
 
     @OneToMany(mappedBy = "awayTeam")
     private List<Matches> awayMatches;
+
+    public void addPlayer(Players player)
+    {
+        players.add(player);
+    }
 }

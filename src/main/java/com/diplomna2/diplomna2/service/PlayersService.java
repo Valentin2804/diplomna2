@@ -16,5 +16,7 @@ public interface PlayersService {
 
     PlayersResource update(PlayersResource resource, long id);
 
+    Optional<Players> getPlayerByNameAndPosition(String name, String position);
+
     void delete(long playerId);
 }

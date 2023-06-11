@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.diplomna2.diplomna2.mapper.PlayerMapper.PLAYER_MAPPER;
 
@@ -49,6 +50,11 @@ public class PlayersImpl implements PlayersService {
                 });
 
         return PLAYER_MAPPER.toPlayerResource(playersRepository.save(toUpdate));
+    }
+
+    @Override
+    public Optional<Players> getPlayerByNameAndPosition(String name, String position) {
+        return playersRepository.getPlayersByNameAndPosition(name, position);
     }
 
     @Override

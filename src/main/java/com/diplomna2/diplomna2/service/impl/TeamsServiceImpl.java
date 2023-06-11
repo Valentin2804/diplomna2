@@ -46,7 +46,15 @@ public class TeamsServiceImpl implements TeamsService {
                             " and birthday " + team1.getManager().getBirthDay() + " not found");
                         });
 
-        playersService
+        team1.getPlayers().forEach(player ->
+        {
+            playersService.getPlayerByNameAndPosition(player.getName(), player.getPosition())
+                    .ifPresentOrElse(team1::addPlayer,
+                            () -> {
+                        throw new EntityNotFoundException("Player with name" + player.getName() + " and position "
+                         + player.getPosition() + " not found");
+                            });
+        });
 
         return TEAM_MAPPER.toTeamsResource(teamsRepository.save(team1));
     }
