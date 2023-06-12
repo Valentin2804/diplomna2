@@ -5,10 +5,14 @@ import com.diplomna2.diplomna2.entity.Matches;
 import com.diplomna2.diplomna2.repository.MatchesRepository;
 import com.diplomna2.diplomna2.repository.TeamsRepository;
 import com.diplomna2.diplomna2.service.MatchesService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@RequiredArgsConstructor
 public class MatchesImpl implements MatchesService {
 
     MatchesRepository matchesRepository;
